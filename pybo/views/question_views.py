@@ -12,7 +12,7 @@ from pybo.views.auth_views import login_required
 bp = Blueprint('question', __name__, url_prefix='/question')
 
 sqs = boto3.client('sqs')
-sqs_queue_url = "https://sqs.us-east-1.amazonaws.com/447079561480/team3q.fifo"
+sqs_queue_url = "https://sqs.ap-northeast-2.amazonaws.com/447079561480/Ticket-Buy-Queue.fifo"
 @bp.route('/list/')
 def _list():
     page = request.args.get('page', type=int, default=1)
