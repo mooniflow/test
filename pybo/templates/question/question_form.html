@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Ticket Reservation</h1>
+
+<form action="/reserve_tickets" method="post">
+    <label for="event_type">Event Type:</label>
+    <select id="event_type" name="event_type">
+        <option value="concert">Concert</option>
+        <option value="sports">Sports Event</option>
+        <option value="theater">Theater Show</option>
+    </select><br>
+
+    <label for="event_time">Event Time:</label>
+    <input type="datetime-local" id="event_time" name="event_time" required><br>
+
+    <label for="ticket_count">Number of Tickets:</label>
+    <input type="number" id="ticket_count" name="ticket_count" min="1" required><br>
+
+    <label>Reservation Status:</label>
+    <input type="radio" id="reservation_confirmed" name="reservation_status" value="confirmed" required>
+    <label for="reservation_confirmed">Confirmed</label>
+    <input type="radio" id="reservation_canceled" name="reservation_status" value="canceled" required>
+    <label for="reservation_canceled">Canceled</label><br>
+
+    <input type="submit" value="Reserve Tickets">
+</form>
+{% endblock %}
